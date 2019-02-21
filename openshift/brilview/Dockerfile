@@ -20,7 +20,7 @@ CMD /start.sh
 
 COPY containerfiles /
 
-RUN git clone https://github.com/jonasdaugalas/brilview.git --branch=1.3.7 &> /dev/null\
+RUN git clone https://github.com/jonasdaugalas/brilview.git --branch=1.3.8 &> /dev/null\
  && cd brilview\
  && /opt/brilconda/bin/python ./setup.py install\
  && chmod 666 /brilview_tmp/brilview_openshift_prod.yaml\
