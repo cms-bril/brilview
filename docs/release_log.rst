@@ -4,6 +4,13 @@ Release log
 1.3
 -----
 
+1.3.10
+^^^^^
+
+2021-08-13
+
+* Fixed per bunch luminosity chart. Set the negative values to zero instead of ignoring them.
+
 1.3.9
 ^^^^^
 
