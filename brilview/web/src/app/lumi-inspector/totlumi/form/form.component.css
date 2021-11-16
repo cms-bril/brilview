@@ -45,3 +45,7 @@ input {
 :host /deep/ .ngui-datetime-picker input {
     width: 100%;
 }
+:host /deep/ .ngui-datetime-picker > .month {
+    width: 500px;
+    text-align: center;
+}
