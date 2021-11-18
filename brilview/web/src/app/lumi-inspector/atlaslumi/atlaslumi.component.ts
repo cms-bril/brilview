@@ -19,8 +19,8 @@ import * as utils from '../../shared/lumi-utils/lumi-chart-utils';
 })
 export class AtlaslumiComponent implements OnInit, AfterViewInit, OnDestroy {
 
-    @ViewChild('chart') chart: ChartComponent;
-    @ViewChild('alerts') alerts;
+    @ViewChild('chart', {static : false}) chart: ChartComponent;
+    @ViewChild('alerts', {static : false}) alerts;
     chartUnit = 'Hz/ub';
     fillnum = null;
     $ngUnsubscribe = new Subject<void>();

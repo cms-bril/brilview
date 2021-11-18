@@ -14,9 +14,9 @@ import * as LumiUnits from '../../../../shared/lumi-utils/lumi-units';
 })
 export class PileupChartComponent implements OnInit, AfterViewInit {
 
-    @ViewChild('alerts') alerts;
-    @ViewChild('chart') chart;
-    @ViewChild('lumiDataSelect1') lumiDataSelect1;
+    @ViewChild('alerts', {static : false}) alerts;
+    @ViewChild('chart', {static : false}) chart;
+    @ViewChild('lumiDataSelect1', {static : false}) lumiDataSelect1;
     lumiData: Array<Array<any>> = [[]];
 
     constructor(protected dataService: LumiDataService) {}

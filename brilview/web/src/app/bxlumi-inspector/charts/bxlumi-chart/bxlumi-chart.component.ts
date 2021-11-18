@@ -11,8 +11,8 @@ import { DataCache } from '../../../shared/data-cache/data-cache';
 export class BXLumiChartComponent implements OnInit {
 
     @Input('cache') cache: DataCache;
-    @ViewChild('alerts') alerts;
-    @ViewChild('chart') chart;
+    @ViewChild('alerts', {static : false}) alerts;
+    @ViewChild('chart', {static : false}) chart;
     chartUnit = null;
 
     constructor() { }

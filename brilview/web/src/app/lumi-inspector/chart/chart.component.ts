@@ -17,7 +17,7 @@ declare var Plotly: any;
 })
 export class ChartComponent implements OnInit, AfterViewInit {
 
-    @ViewChild('chart') chart;
+    @ViewChild('chart', {static : false}) chart;
     @Input('noRemoveButtons') noRemoveButtons = false;
     @Input('noSeparators') noSeparators = false;
     chartData: any = [];

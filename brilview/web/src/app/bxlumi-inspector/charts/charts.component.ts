@@ -16,7 +16,7 @@ export class ChartsComponent implements OnInit, OnDestroy {
 
     protected ngUnsubscribe$ = new Subject<void>();
     @Input('cache') cache: DataCache;
-    @ViewChild('bxlumiChart') bxlumiChart: BXLumiChartComponent;
+    @ViewChild('bxlumiChart', {static : false}) bxlumiChart: BXLumiChartComponent;
     lumiChartVisible = true;
     ratioChartVisible = false;
 

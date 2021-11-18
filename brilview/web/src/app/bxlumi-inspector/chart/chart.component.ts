@@ -13,7 +13,7 @@ declare var Plotly: any;
 })
 export class ChartComponent implements OnInit {
 
-    @ViewChild('chart') chart;
+    @ViewChild('chart', {static : false}) chart;
     chartData: any = [];
 
     chartType = ChartDefaults.seriesStyleName;

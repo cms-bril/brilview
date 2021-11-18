@@ -24,28 +24,28 @@ input {
     width: 100%;
 }
 
-:host /deep/ .picker-dropdown {
+:host ::ng-deep .picker-dropdown {
     max-height: 482px;
 }
 
-:host /deep/ .picker-dropdown > .picker-box {
+:host ::ng-deep .picker-dropdown > .picker-box {
     font-family: inherit;
     line-height: initial;
 }
 
-:host /deep/ .picker-dropdown > .picker-box > .picker-banner > .picker-banner-moment > .moment-date,
+:host ::ng-deep .picker-dropdown > .picker-box > .picker-banner > .picker-banner-moment > .moment-date,
 .picker-dropdown > .picker-box > .picker-banner > .picker-banner-moment > .moment-time {
     padding: 0;
 }
 
-:host /deep/ .ngui-datetime-picker .days {
+:host ::ng-deep .ngui-datetime-picker .days {
     width: 230px;
 }
 
-:host /deep/ .ngui-datetime-picker input {
+:host ::ng-deep .ngui-datetime-picker input {
     width: 100%;
 }
-:host /deep/ .ngui-datetime-picker > .month {
+:host ::ng-deep .ngui-datetime-picker > .month { 
     width: 500px;
     text-align: center;
 }

@@ -12,8 +12,8 @@ import { LumiDataService } from '../../../data.service';
 })
 export class LumiChartComponent implements OnInit, AfterViewInit {
 
-    @ViewChild('alerts') alerts;
-    @ViewChild('chart') chart;
+    @ViewChild('alerts', {static : false}) alerts;
+    @ViewChild('chart', {static : false}) chart;
     lumiData: Array<Array<any>>;
     chartUnit = null;
 
