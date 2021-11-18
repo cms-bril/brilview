@@ -17,10 +17,10 @@ const appRoutes: Routes = [{
     pathMatch: 'full'
 }, {
     path: 'totlumi',
-    loadChildren: 'app/lumi-inspector/lumi-inspector.module#LumiInspectorModule'
+    loadChildren: () => import('app/lumi-inspector/lumi-inspector.module').then(m => m.LumiInspectorModule)
 }, {
     path: 'bxlumi',
-    loadChildren: 'app/bxlumi-inspector/bxlumi-inspector.module#BXLumiInspectorModule'
+    loadChildren: () => import('app/bxlumi-inspector/bxlumi-inspector.module').then(m => m.BXLumiInspectorModule)
 }, {
     path: '**', component: RouteNotFoundComponent
 }];

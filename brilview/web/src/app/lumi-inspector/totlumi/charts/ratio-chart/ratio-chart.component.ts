@@ -14,10 +14,10 @@ import * as LumiUnits from '../../../../shared/lumi-utils/lumi-units';
 })
 export class RatioChartComponent implements OnInit, AfterViewInit {
 
-    @ViewChild('alerts', {static: false} ) alerts;
-    @ViewChild('chart', {static: false}) chart;
-    @ViewChild('lumiDataSelect1', {static: false}) lumiDataSelect1;
-    @ViewChild('lumiDataSelect2', {static: false}) lumiDataSelect2;
+    @ViewChild('alerts') alerts;
+    @ViewChild('chart') chart;
+    @ViewChild('lumiDataSelect1') lumiDataSelect1;
+    @ViewChild('lumiDataSelect2') lumiDataSelect2;
     lumiData: Array<Array<any>> = [[]];
     lumiDataStorageUpdates$: Observable<any>;
     currentPermutationIdx = 0;

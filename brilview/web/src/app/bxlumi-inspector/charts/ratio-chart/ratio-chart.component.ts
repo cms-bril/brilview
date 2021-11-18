@@ -12,7 +12,7 @@ import { DataCache } from '../../../shared/data-cache/data-cache';
 export class RatioChartComponent implements OnInit {
 
     @Input('cache') cache: DataCache;
-    @ViewChild('chart', {static : false}) chart: ChartComponent;
+    @ViewChild('chart') chart: ChartComponent;
 
     constructor() { }
 

@@ -14,8 +14,8 @@ import { ChartComponent } from '../chart/chart.component';
 })
 export class LiveBestlumiComponent implements OnInit, AfterViewInit, OnDestroy {
 
-    @ViewChild('chart', {static : false}) chart: ChartComponent;
-    @ViewChild('alerts', {static : false}) alerts;
+    @ViewChild('chart') chart: ChartComponent;
+    @ViewChild('alerts') alerts;
     $ngUnsubscribe = new Subject<void>();
     $timer: Observable<number>;
     timerSubs: Subscription;
