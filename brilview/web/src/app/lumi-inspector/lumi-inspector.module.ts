@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ClarityModule } from '@clr/angular';
-import { NguiDatetimePickerModule } from '@ngui/datetime-picker';
+//import { NguiDatetimePickerModule } from '@ngui/datetime-picker';
 import { AlertsModule } from '../alerts/alerts.module';
 import { LumiInspectorRouting } from './lumi-inspector.routing';
 import { LumiDataService } from './data.service';
@@ -33,7 +33,7 @@ import { FormComponent as AtlaslumiFormComponent } from './atlaslumi/form/form.c
         LumiInspectorRouting,
         AlertsModule,
         ClarityModule,
-        NguiDatetimePickerModule,
+  //      NguiDatetimePickerModule,
         SharedModule
     ],
     exports: [],

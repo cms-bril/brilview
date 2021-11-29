@@ -34,7 +34,7 @@ export class DataCache {
     }
 
     removeData(key: string) {
-        if(this.cache.hasOwnProperty(key)) {
+        if (this.cache.hasOwnProperty(key)) {
             delete this.cache[key];
             this.onChange$.next();
             return true;

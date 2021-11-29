@@ -20,7 +20,7 @@ export class StatusComponent implements OnInit {
         if (this.overrideStatusClass) {
             return this.overrideStatusClass;
         } else if (this.status) {
-            let status = this.status.toUpperCase();
+            const status = this.status.toUpperCase();
             if (status === 'OK' || status === 'SUCCESS') {
                 return 'success';
             } else if (status === 'ERROR' || status === 'FAIL') {

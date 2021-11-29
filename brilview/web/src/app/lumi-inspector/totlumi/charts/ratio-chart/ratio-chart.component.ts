@@ -124,7 +124,7 @@ export class RatioChartComponent implements OnInit, AfterViewInit {
             s1.selectedIndex = s2.selectedIndex = -1;
             return;
         }
-        if (this.permutations.length == 1) {
+        if (this.permutations.length === 1) {
             s1.selectedIndex = s2.selectedIndex = 0;
             return;
         }

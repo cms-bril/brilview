@@ -4,13 +4,13 @@
         "declaration": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "lib": ["es2015", "dom"],
+        "lib": ["ES2020", "dom"],
         "mapRoot": "./",
         "module": "esnext",
         "moduleResolution": "node",
         "outDir": "../dist/out-tsc",
         "sourceMap": true,
-        "target": "es2015",
+        "target": "ES2020",
         "typeRoots": [
             "../node_modules/@types"
         ]

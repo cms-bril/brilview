@@ -35,7 +35,7 @@ export class BXLumiInspectorComponent implements OnInit, OnDestroy {
                 this.cache.setData(cacheKey, cacheValue);
                 if (this.cache.getSize() > 10) {
                     const timestamps = this.cache.getKeys()
-                        .map(key => {return parseInt(key, 10);})
+                        .map(key => {return parseInt(key, 10);  })
                         .sort((a: number, b: number) => (a - b));
                     this.cache.removeData(timestamps[0].toString());
                 }

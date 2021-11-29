@@ -46,7 +46,7 @@ export class ChartStatsComponent implements OnInit {
     toISOStringNoThrow(date) {
         try {
             return date.toISOString();
-        } catch (any){
+        } catch (any) {
             return date;
         }
     }

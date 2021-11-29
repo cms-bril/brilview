@@ -11,4 +11,4 @@ const lumiInspectorRoutes: Routes = [
     { path: 'atlaslumi', component: AtlaslumiComponent},
 ];
 
-export const LumiInspectorRouting: ModuleWithProviders = RouterModule.forChild(lumiInspectorRoutes);
+export const LumiInspectorRouting: ModuleWithProviders<any> = RouterModule.forChild(lumiInspectorRoutes);

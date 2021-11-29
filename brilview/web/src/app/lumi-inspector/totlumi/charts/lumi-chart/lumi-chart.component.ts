@@ -66,7 +66,7 @@ export class LumiChartComponent implements OnInit, AfterViewInit {
     protected _addSeries(data, yfield, name, params) {
         this.chart.addSeries(
             name,
-            data['tssec'].map(t => t*1000),
+            data['tssec'].map(t => t * 1000),
             utils.scaleLumiValues(data[yfield], params['unit'], this.chartUnit),
             this.makeTextLabels(data),
             {runnum: data['runnum'], fillnum: data['fillnum']}

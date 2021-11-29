@@ -1,7 +1,7 @@
 import {
     Component, OnInit, ViewChild, AfterViewInit, OnDestroy
 } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs/Subscription';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/observable/timer';

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/delay';
@@ -19,7 +19,7 @@ export class AtlaslumiDataService {
     constructor(private http: HttpClient) {}
 
     query(params) {
-        let _params = Object.assign({}, params, {
+        const _params = Object.assign({}, params, {
             'query_type': 'atlaslumi',
         });
         const request = this.http.post('/api/query', _params, AtlaslumiDataService.postOptions)

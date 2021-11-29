@@ -57,7 +57,7 @@ export class LiveBestlumiComponent implements OnInit, AfterViewInit, OnDestroy {
         } else {
             try {
                 this.timerSubs.unsubscribe();
-            } catch(Exception) {}
+            } catch (Exception) {}
             this.chart.setTitle('Instantaneous luminosity (Stopped)');
         }
     }
@@ -102,7 +102,7 @@ export class LiveBestlumiComponent implements OnInit, AfterViewInit, OnDestroy {
             if (x.length === 0) {
                 return;
             }
-            while(x[0] < x[x.length -1] - this.liveWindow) {
+            while (x[0] < x[x.length - 1] - this.liveWindow) {
                 this.shiftSeriesPoint(series);
             }
             this.chart.redrawChart();

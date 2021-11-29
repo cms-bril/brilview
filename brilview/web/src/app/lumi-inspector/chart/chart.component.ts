@@ -30,7 +30,7 @@ export class ChartComponent implements OnInit, AfterViewInit {
     chartTypeOptions = ChartDefaults.seriesStyleNames;
     showRunLines = false;
     showFillLines = false;
-    logarithmicY: boolean = false;
+    logarithmicY = false;
     chartHeightOptions = [300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400];
     chartHeight = 300;
 
@@ -66,7 +66,7 @@ export class ChartComponent implements OnInit, AfterViewInit {
     }
 
     addSeries(name: string, x: Array<number>, y: Array<number>,
-              text: Array<string>, other: any, sort=true) {
+              text: Array<string>, other: any, sort = true) {
 
         const newSeries = {
             name: name,

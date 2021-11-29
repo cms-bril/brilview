@@ -57,7 +57,7 @@ export class PileupChartComponent implements OnInit, AfterViewInit {
     protected _addSeries(data, name, params) {
         this.chart.addSeries(
             name,
-            data['tssec'].map(t => t*1000),
+            data['tssec'].map(t => t * 1000),
             data['pileup'],
             this.makeTextLabels(data),
             {runnum: data['runnum'], fillnum: data['fillnum']}

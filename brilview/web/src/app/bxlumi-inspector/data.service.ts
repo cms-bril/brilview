@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/delay';
@@ -48,7 +48,7 @@ export class BXLumiDataService {
     parseParameters(p) {
         const parsed = Object.assign({}, p);
         parsed['query_type'] = 'bxlumi';
-        if (parsed.hasOwnProperty('type')){
+        if (parsed.hasOwnProperty('type')) {
             const lumitype = parsed['type'].toLowerCase();
             if (lumitype === 'online' || lumitype === '-normtag-') {
                 parsed['type'] = null;

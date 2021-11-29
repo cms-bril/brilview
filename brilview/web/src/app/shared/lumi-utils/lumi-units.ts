@@ -75,7 +75,7 @@ export function unitForData(maxValue, currentUnit) {
         units = instantaneousUnits;
     }
     let newUnit = currentUnit;
-    while (maxValue > 1000 && newUnit !== units[units.length -1]) {
+    while (maxValue > 1000 && newUnit !== units[units.length - 1 ]) {
         maxValue = maxValue / 1000;
         newUnit = stepUnit(newUnit, 'up');
     }

@@ -31,8 +31,8 @@ export class RatioChartComponent implements OnInit {
         const params1 = newData1.params;
         const params2 = newData2.params;
         const name = this.make_name(params1, yfield1, params2, yfield2);
-        const y = lumi1[yfield1].map((el, i) => el/lumi2[yfield2][i]);
-        const x = y.map((el, i) => i+1);
+        const y = lumi1[yfield1].map((el, i) => el / lumi2 [yfield2] [i] );
+        const x = y.map((el, i) => i + 1);
         this.chart.addSeries(name, x, y, [], []);
     }
 

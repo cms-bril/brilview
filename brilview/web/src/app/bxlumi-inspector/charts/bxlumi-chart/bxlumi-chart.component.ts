@@ -56,7 +56,7 @@ export class BXLumiChartComponent implements OnInit {
     protected _addSeries(data, yfield, name, params) {
         const x = [];
         for (let i = 0; i < data[yfield].length; ++i) {
-            x.push(i+1);
+            x.push(i + 1);
         }
         this.chart.addSeries(
             name,

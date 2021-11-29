@@ -28,7 +28,7 @@ implements OnInit, AfterViewInit {
 
     protected _addSeries(data, yfield, name, params) {
         const points = this.chart.makeDataPoints({
-            x: data['tssec'].map(t => 1000*t),
+            x: data['tssec'].map(t => 1000 * t),
             y: data[yfield],
             text: this.makeTextLabels(data)
         }, {

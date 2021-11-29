@@ -7,4 +7,4 @@ const bxlumiInspectorRoutes: Routes = [
     { path: '', component: BXLumiInspectorComponent},
 ];
 
-export const BXLumiInspectorRouting: ModuleWithProviders = RouterModule.forChild(bxlumiInspectorRoutes);
+export const BXLumiInspectorRouting: ModuleWithProviders <any> = RouterModule.forChild(bxlumiInspectorRoutes);

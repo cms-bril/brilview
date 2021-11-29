@@ -38,8 +38,8 @@ export class NormtagService {
     }
 
     getAllTags() {
-        let iovtags = this.getIOVTags();
-        let normtags = this.getNormtags();
+        const iovtags = this.getIOVTags();
+        const normtags = this.getNormtags();
         return zip(iovtags, normtags).pipe(
             map((tags) => {
                return tags[0].concat(tags[1]);

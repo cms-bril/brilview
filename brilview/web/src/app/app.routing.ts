@@ -25,4 +25,4 @@ const appRoutes: Routes = [{
     path: '**', component: RouteNotFoundComponent
 }];
 
-export const AppRouting: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export const AppRouting: ModuleWithProviders<any> = RouterModule.forRoot(appRoutes);

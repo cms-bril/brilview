@@ -23,8 +23,7 @@ export class NormtagSelectComponent implements OnInit {
 
     constructor(
         protected normtagService: NormtagService,
-        protected completerService: CompleterService)
-    {
+        protected completerService: CompleterService) {
         this.normtags = completerService.local([]);
     }
 
@@ -41,7 +40,7 @@ export class NormtagSelectComponent implements OnInit {
             subs = this.normtagService.getIOVTags();
         } else if (this.tagTypes === 'normtags') {
             subs = this.normtagService.getNormtags();
-        } else if (this.tagTypes === 'alltags'){
+        } else if (this.tagTypes === 'alltags') {
             subs = this.normtagService.getAllTags();
         } else {
             return;

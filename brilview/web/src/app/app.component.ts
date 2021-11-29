@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    sidenavOpen: boolean = false;
+    sidenavOpen = false;
 
     sidenavToggle() {
         this.sidenavOpen = !this.sidenavOpen;
