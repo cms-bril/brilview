@@ -4,6 +4,7 @@ import {
 import { Observable, fromEvent as ObservableFromEvent} from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import * as ChartDefaults from './chart-defaults';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 declare var Plotly: any;
 
@@ -32,7 +33,7 @@ export class ChartComponent implements OnInit, AfterViewInit {
     showFillLines = false;
     logarithmicY = false;
     chartHeightOptions = [300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400];
-    chartHeight = 300;
+    chartHeight = 400;
 
     constructor() { }
 

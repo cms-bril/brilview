@@ -3,7 +3,6 @@ import {
 } from '@angular/core';
 import { Observable, Subscription, Subject, timer } from 'rxjs';
 import { takeUntil } from 'rxjs/operators'
-
 import { LiveLumiDataService } from '../live-lumi-data.service';
 import { ChartComponent } from '../chart/chart.component';
 
@@ -28,8 +27,6 @@ export class LiveBestlumiComponent implements OnInit, AfterViewInit, OnDestroy {
     constructor(protected dataService: LiveLumiDataService) { }
 
     ngOnInit() {
-        this.chart.showRunLines = true;
-        this.chart.chartHeight = 400;
     }
 
     ngAfterViewInit() {

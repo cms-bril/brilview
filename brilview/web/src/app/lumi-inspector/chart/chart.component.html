@@ -16,37 +16,37 @@
             <div class="bv-form-group">
                 <label>Chart type</label>
                 <div class="select">
-                    <select [(ngModel)]="chartType" (change)="onChartTypeChange()">
+                    <select [(ngModel)]="chartType" (change)="onChartTypeChange()" name="charType">
                         <option *ngFor="let opt of chartTypeOptions">{{opt}}</option>
                     </select>
                 </div>
             </div>
 
-            <div class="bv-form-element form-group">
-                <clr-checkbox
+            <div  class="bv-form-element form-group">
+                
+                <input type="checkbox" name="logY"
                     [(ngModel)]="logarithmicY"
                     (change)="onLogarithmicYChange()"
-                    [clrInline]="true">
-                    Log Y axis
-                </clr-checkbox>
+                 /> Log Y axis
             </div>
 
-            <div class="bv-form-element form-group" *ngIf="!noSeparators">
-                <clr-checkbox
+
+            <div class="bv-form-element form-group" *ngIf="!noSeparators"  >
+                <input type="checkbox" 
+                    name="noSeparators"
                     [(ngModel)]="showFillLines"
                     (change)="updateFillRunLines()"
                     [clrInline]="true">
                     FILL separators
-                </clr-checkbox>
             </div>
 
             <div class="bv-form-element form-group" *ngIf="!noSeparators">
-                <clr-checkbox
+                <input type="checkbox" 
+                     name="runSeparators"
                     [(ngModel)]="showRunLines"
                     (change)="updateFillRunLines()"
                     [clrInline]="true">
                     RUN separators
-                </clr-checkbox>
             </div>
 
             <div *ngIf="!noRemoveButtons" class="bv-form-element">
