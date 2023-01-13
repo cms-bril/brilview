@@ -22,7 +22,9 @@ export class FormComponent implements OnInit {
         normtag: null,
         without_correction: false,
         bxthreshold: null,
-        xingmin: null
+        xingmin: null,
+        bxid_start: null,
+        bxid_end: null
     }
 
     paramOptions = {

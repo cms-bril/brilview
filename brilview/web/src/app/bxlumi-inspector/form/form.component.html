@@ -67,6 +67,14 @@
         <div class="bv-form-controls">
 
             <div class="bv-form-group">
+                <label>BXID Start</label>
+    
+                <input type="number"
+                       placeholder="Initial bunch index"
+                       [(ngModel)]="params.bxid_start" />
+            </div>
+
+            <div class="bv-form-group">
                 <label>BXTHRESHOLD</label>
     
                 <input type="number" min="0" max="1" step="0.05"
@@ -76,10 +84,21 @@
     
             <div class="bv-form-group">
                 <label>XINGMIN</label>
-    
-                <input type="number" step="100"
+                    <input type="number"
                        placeholder="Min bunch luminosity"
                        [(ngModel)]="params.xingmin" />
+            </div>
+
+        </div>
+
+        <div class="bv-form-controls">
+
+            <div class="bv-form-group">
+                <label>BXID End</label>
+    
+                <input type="number"
+                       placeholder="Final bunch index"
+                       [(ngModel)]="params.bxid_end" />
             </div>
         </div>
     </div>
