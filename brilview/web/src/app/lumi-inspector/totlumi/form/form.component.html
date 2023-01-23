@@ -71,11 +71,12 @@
                 </div>
             </div>
 
+            <!-- For automatically changing the params.type value when normtag changes -->
+            <!-- (blur)="params.normtag ? params.type = '-normtag-' : undefined" -->
             <div class="bv-form-group">
                 <label>Normtag</label>
                 <bv-normtag-select
                     tagTypes="alltags"
-                    (blur)="params.normtag ? params.type = '-normtag-' : undefined"
                     (valueChange)="params.normtag = $event">
                 </bv-normtag-select>
             </div>
