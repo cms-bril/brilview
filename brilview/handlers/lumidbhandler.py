@@ -84,6 +84,7 @@ def create_engine(servicemap, servicename):
 
 
 def get_engine(use_cached=True):
+    global DEFAULT_ENGINE
     if use_cached and DEFAULT_ENGINE is not None:
         return DEFAULT_ENGINE
     authfile = None
@@ -110,7 +111,8 @@ def get_engine(use_cached=True):
     if authfile is None:
         raise RuntimeError('Cannot create SQL engine without authfile path')
     servicemap = parseservicemap(authfile)
-    return create_engine(servicemap, servicename)
+    DEFAULT_ENGINE = create_engine(servicemap, servicename)
+    return DEFAULT_ENGINE
 
 
 def _get_iovtags(engine):

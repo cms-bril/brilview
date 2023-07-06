@@ -3,6 +3,12 @@ Release log
 
 1.5
 -----
+1.5.7
+^^^^^
+2023-07-06
+
+* resuse same sql engine for DB accesses
+
 1.5.5
 ^^^^^
 2023-01-20
