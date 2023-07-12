@@ -3,6 +3,12 @@ Release log
 
 1.5
 -----
+1.5.9
+^^^^^
+2023-07-12
+
+* Add cache to ATLAS luni chart.
+
 1.5.8
 ^^^^^
 2023-07-12

@@ -27,10 +27,11 @@ export class AtlaslumiComponent implements OnInit, AfterViewInit, OnDestroy {
     loadingStatus: string;
     loadingProgress = 0;
     responseMessage = null;
+    lumiData = [];
 
     constructor(
         protected atlasDataService: AtlaslumiDataService,
-        protected brilDataService: BrillumiDataService) {
+        public brilDataService: BrillumiDataService) {
     }
 
     ngOnInit() {
@@ -56,8 +57,9 @@ export class AtlaslumiComponent implements OnInit, AfterViewInit, OnDestroy {
             .finally(() => this.loadingProgress = 100);
         obs.subscribe(resp => {
             const d = resp['data'];
-            this.fillnum = d['single_fillnum'];
-            this.chart.setTitle('Instantaneous luminosity. Fill: ' + d['single_fillnum']);
+            this.fillnum = d['single_fillnum'][0];
+            this.lumiData = d['lumi_totinst'];
+            this.chart.setTitle('Instantaneous luminosity. Fill: ' + d['single_fillnum'][0]);
             this.chartUnit = 'Hz/ub';
             this.chart.addSeries('ATLAS', d['timestamp'], d['lumi_totinst'], [], {});
             this.rescaleChartValues();
@@ -81,9 +83,9 @@ export class AtlaslumiComponent implements OnInit, AfterViewInit, OnDestroy {
             .finally(() => this.loadingProgress = 100);
         obs.subscribe(resp => {
             const d = resp['data'];
+            this.lumiData = d['delivered'];
             const x = d['tssec'].map(x => x * 1000);
             const y = utils.scaleLumiValues(d['delivered'], event['unit'], this.chartUnit);
-            console.log(event, d['delivered'], this.chartUnit, y);
             const nameParts = [
                 'BRIL',
                 (event['type'] === '-normtag-' ? null : event['type']),

@@ -1,27 +1,48 @@
-<li-atlaslumi-form
-    (onBrilQuery)="queryBrilLumi($event)"
-    (onAtlasQuery)="queryAtlasLumi($event)">
-</li-atlaslumi-form>
+<clr-tabs style="width: 100%">
+    <clr-tab>
+        <button clrTabLink>
+            <clr-icon shape="search"></clr-icon>
+            Query
+        </button>
+        <clr-tab-content [clrTabContentActive]="true">
+            <li-atlaslumi-form
+                (onBrilQuery)="queryBrilLumi($event)"
+                (onAtlasQuery)="queryAtlasLumi($event)">
+            </li-atlaslumi-form>
+            
+            <div>
+                <div [hidden]="!responseMessage || loadingProgress < 100">
+                    <label>Message:</label> {{responseMessage}}
+                </div>
+            </div>
+            
+            <div class="progress"
+                [hidden]="!loadingStatus"
+                [class.flash]="loadingProgress === 100 && loadingStatus === 'OK'"
+                [class.flash-danger]="loadingProgress === 100 && loadingStatus !== 'OK'"
+                [class.loop]="loadingProgress < 100">
+                <progress max="100" [value]="loadingProgress"></progress>
+            </div>
+            
+            <div class="row" >
+                <div class="col-xs-12">
+                    <div class="bv-chart-wrap-container">
+                        <li-chart #chart [noSeparators]="true"></li-chart>
+                        <bv-alerts #alerts></bv-alerts>
+                    </div>
+                </div>
+            </div>
+        </clr-tab-content>
+    </clr-tab>
 
-<div>
-    <div [hidden]="!responseMessage || loadingProgress < 100">
-        <label>Message:</label> {{responseMessage}}
-    </div>
-</div>
-
-<div class="progress"
-     [hidden]="!loadingStatus"
-     [class.flash]="loadingProgress === 100 && loadingStatus === 'OK'"
-     [class.flash-danger]="loadingProgress === 100 && loadingStatus !== 'OK'"
-     [class.loop]="loadingProgress < 100">
-    <progress max="100" [value]="loadingProgress"></progress>
-</div>
-
-<div class="row" >
-    <div class="col-xs-12">
-        <div class="bv-chart-wrap-container">
-            <li-chart #chart [noSeparators]="true"></li-chart>
-            <bv-alerts #alerts></bv-alerts>
-        </div>
-    </div>
-</div>
+    <clr-tab>
+        <button clrTabLink>
+            <clr-icon shape="clipboard"></clr-icon>
+            Cache
+            <span class="badge">{{this.brilDataService.lumiData.length}}</span>
+        </button>
+        <clr-tab-content>
+            <li-storage></li-storage>
+        </clr-tab-content>
+    </clr-tab>
+</clr-tabs>

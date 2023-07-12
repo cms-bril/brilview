@@ -24,8 +24,8 @@ export class LumiDataService {
     onRemoveLumiData$: Subject<void>;
     lumiDataLimit = 10;
     lumiData = [];
-    protected storage = {};
-    protected lastStorageID = -1;
+    storage = {};
+    lastStorageID = -1;
 
 
     constructor(private http: HttpClient) {
