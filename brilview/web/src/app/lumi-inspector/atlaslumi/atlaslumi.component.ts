@@ -70,7 +70,6 @@ export class AtlaslumiComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     queryBrilLumi(event) {
-        console.log('event bril ', event);
         if (event['fillnum'] != this.fillnum && event['fillnum']) {
             this.onQueryError('Fillnum for the CMS lumi is different than the queried ATLAS lumi');
             return;

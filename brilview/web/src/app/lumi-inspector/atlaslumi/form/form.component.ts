@@ -26,6 +26,7 @@ export class FormComponent implements OnInit {
 
     clickBrilQuery() {
         this.onBrilQuery.emit({
+            fillnum: this.fillnum,
             type: this.brilLumiType,
             normtag: this.brilNormtag,
             unit: 'hz/ub',
