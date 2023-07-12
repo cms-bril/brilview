@@ -3,6 +3,13 @@ Release log
 
 1.5
 -----
+1.5.8
+^^^^^
+2023-07-12
+
+* Improved error messaging for the ATLAS lumi chart when the fillnum of
+  the queried luminosity for CMS mismatches the fillnum of the queried ATLAS lumi.
+
 1.5.7
 ^^^^^
 2023-07-06
