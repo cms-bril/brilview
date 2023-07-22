@@ -3,6 +3,13 @@ Release log
 
 1.5
 -----
+1.5.10
+^^^^^
+2023-07-22
+
+* Add new input form to CMS lumi queries for the connection mode.
+* Update the backend to handle the the connection mode value
+
 1.5.9
 ^^^^^
 2023-07-12
