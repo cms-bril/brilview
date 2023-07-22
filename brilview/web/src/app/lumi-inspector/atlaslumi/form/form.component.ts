@@ -12,6 +12,8 @@ export class FormComponent implements OnInit {
     brilLumiType = 'Online';
     brilNormtag = undefined;
     brilLumiTypeOptions = LUMI_TYPES.concat(['-normtag-']);
+    connection = 'web';
+    connectionOptions = ['web', 'offline'];
     @Output() onAtlasQuery = new EventEmitter<{}>();
     @Output() onBrilQuery = new EventEmitter<{}>();
 
@@ -30,7 +32,8 @@ export class FormComponent implements OnInit {
             type: this.brilLumiType,
             normtag: this.brilNormtag,
             unit: 'hz/ub',
-            byls: true
+            byls: true,
+            connection: this.connection
         });
     }
 

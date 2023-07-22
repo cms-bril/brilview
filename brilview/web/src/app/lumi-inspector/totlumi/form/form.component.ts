@@ -35,7 +35,8 @@ export class FormComponent implements OnInit {
         byls: true,
         without_correction: false,
         pileup: false,
-        minbiasxsec: 80000
+        minbiasxsec: 80000,
+        connection: 'web'
     };
     paramOptions = {
         timeunit: ['RUN/FILL', 'DATE'],
@@ -43,7 +44,8 @@ export class FormComponent implements OnInit {
         unit: [['hz/mb', 'Instantaneous'], ['/mb', 'Integrated']],
         beamstatus: ['-anybeams-'].concat(BEAMS),
         normtag: null,
-        datatagnames: null
+        datatagnames: null,
+        connection: ['web', 'offline']
     };
     paramOptionsLoading = {
         normtag: false

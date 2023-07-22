@@ -77,7 +77,8 @@ export class AtlaslumiComponent implements OnInit, AfterViewInit, OnDestroy {
         this.onQueryStart();
         const query = Object.assign(event, {
             begin: this.fillnum,
-            end: this.fillnum
+            end: this.fillnum,
+            connection: event['connection']
         });
         const obs = this.brilDataService.query(query)
             .finally(() => this.loadingProgress = 100);

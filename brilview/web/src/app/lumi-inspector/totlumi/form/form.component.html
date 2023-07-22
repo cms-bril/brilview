@@ -56,6 +56,15 @@
                     (click)="endFieldIsDate = !endFieldIsDate; params.end = null; timeoutFocus(endDateField, 100)">
                 </clr-icon>
             </div>
+
+            <div class="bv-form-group">
+                <label>Connection mode</label>
+                <div class="select">
+                    <select [(ngModel)]="params.connection">
+                        <option *ngFor="let opt of paramOptions.connection">{{opt}}</option>
+                    </select>
+                </div>
+            </div>
         </div>
     </div>
 
