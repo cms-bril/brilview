@@ -92,7 +92,7 @@ def brilview_main(progname=sys.argv[0]):
     config = {}
     with open(configfile, 'r') as f:
         try:
-            config = yaml.load(f)
+            config = yaml.safe_load(f)
         except yaml.YAMLError as exc:
             log.error(exc)
 
