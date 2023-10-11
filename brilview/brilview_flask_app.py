@@ -39,9 +39,8 @@ def query():
     if data is None:
         return ('Bad request. Query body must be not empty.', 400)
     result = queryrouter.query(data)
-
-    return flask.Response(json.dumps(result), mimetype='application/json')
-
+    #return flask.Response(json.dumps(result), mimetype='application/json')
+    return flask.jsonify(result)
 
 @app.route('/test/<prm>', methods=['GET', 'POST', 'PUT', 'DELETE'])
 @app.route('/test', methods=['GET', 'POST', 'PUT', 'DELETE'])
@@ -54,8 +53,8 @@ def test_app_server(prm=None):
     }
     if prm is not None and prm.startswith('wait'):
         time.sleep(int(prm[4:]))
-    return flask.Response(json.dumps(result), mimetype='application/json')
-
+    #return flask.Response(json.dumps(result), mimetype='application/json')
+    return flask.jsonify(result)
 
 def run_flask():
     app.run(host=bvconfig.host, port=bvconfig.port, threaded=True)
