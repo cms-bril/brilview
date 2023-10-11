@@ -51,4 +51,4 @@ brilcommandhandler:
 
 lumidbhandler:
   connection: offline
-  authfile: /opt/brilconda/lib/python3.7/site-packages/brilws/data/readdb3.ini
+  authfile: /opt/brilconda/lib/python3.10/site-packages/brilws/data/readdb3.ini
