@@ -220,7 +220,7 @@ def _datetime2seconds(dt):
 
 
 if __name__ == '__main__':
-    servicemap = parseservicemap('../data/db_read.ini')
-    engine = create_engine(servicemap, 'online')
+    servicemap = parseservicemap('../data/readdb3.ini')
+    engine = create_engine(servicemap, 'offline')
     print(_get_iovtags(engine))
     print(get_iovtags())
