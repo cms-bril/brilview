@@ -6,11 +6,11 @@ RUN yum install -y epel-release\
  && yum localinstall -y telegraf-1.19.1-1.x86_64.rpm\
  && rm telegraf-1.19.1-1.x86_64.rpm\
  && yum clean all\
- && wget -q https://cern.ch/cmslumisw/installers/linux-64/Brilconda-3.2.16-Linux-x86_64.sh\
+ && wget -q https://cern.ch/cmslumisw/installers/linux-64/Brilconda-3.3.0-0-Linux-x86_64.sh\
  && mkdir -p /opt\
- && bash ./Brilconda-3.2.16-Linux-x86_64.sh -b -p /opt/brilconda\
- && rm ./Brilconda-3.2.16-Linux-x86_64.sh\
- && /opt/brilconda/bin/pip install brilws==3.6.9;
+ && bash ./Brilconda-3.3.0-0-Linux-x86_64.sh -b -p /opt/brilconda\
+ && rm ./Brilconda-3.3.0-0-Linux-x86_64.sh\
+ && /opt/brilconda/bin/pip install brilws==3.8.1;
 
 EXPOSE 9000
 
