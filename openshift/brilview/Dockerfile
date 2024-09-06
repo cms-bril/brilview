@@ -10,7 +10,7 @@ RUN yum install -y epel-release\
  && mkdir -p /opt\
  && bash ./Brilconda-3.3.0-0-Linux-x86_64.sh -b -p /opt/brilconda\
  && rm ./Brilconda-3.3.0-0-Linux-x86_64.sh\
- && /opt/brilconda/bin/pip install brilws==3.8.1;
+ && /opt/brilconda/bin/pip install brilws==3.9.0;
 
 EXPOSE 9000
 
