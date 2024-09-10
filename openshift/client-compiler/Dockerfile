@@ -1,16 +1,18 @@
-FROM openshift/base-centos7
-RUN yum install epel-release -y 
-RUN yum install -y nodejs 
-RUN yum update openssl openssl-devel -y 
-RUN node --version
+FROM cern/alma8-base:20240901-1
+RUN dnf install -y git
+WORKDIR "/home"
+RUN git config --global user.email "brilview-client-compiler"
+RUN git config --global user.name "brilview client compiler"
+RUN git clone --branch=1.6.2 https://github.com/cms-bril/brilview.git brilview_src
+WORKDIR "brilview_src/brilview/web"
 RUN touch ~/.bashrc \
- && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash \
+ && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash \
  && source ~/.bashrc \
- && nvm install 14.14.0 \
- && nvm alias default 14 \
+ && nvm install 10 \
+ && nvm use 10.24.1 \
  && npm install -g yarn \
- && yarn --version
-COPY containerfiles .
-RUN chmod 777 -R .
-CMD ["/opt/app-root/src/build_brilview_client.sh"]
-
+ && yarn install --force --ignore-engines
+RUN mkdir -p /client_files_for_serving && cp -R dist/* /client_files_for_serving
+COPY containerfiles/loop.sh .
+RUN chmod -R 777 loop.sh
+CMD ["./loop.sh"]
