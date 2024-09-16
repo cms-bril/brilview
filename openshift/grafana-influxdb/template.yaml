@@ -2,12 +2,12 @@ apiVersion: v1
 kind: List
 items:
 
-- apiVersion: v1
+- apiVersion: image.openshift.io/v1
   kind: ImageStream
   metadata:
     name: grafana-influxdb-image
 
-- apiVersion: v1
+- apiVersion: build.openshift.io/v1
   kind: BuildConfig
   metadata:
     name: grafana-influxdb-bc
@@ -23,7 +23,7 @@ items:
         kind: ImageStreamTag
         name: "grafana-influxdb-image:latest"
 
-- apiVersion: v1
+- apiVersion: apps.openshift.io/v1
   kind: DeploymentConfig
   metadata:
     name: grafana-influxdb-dc
