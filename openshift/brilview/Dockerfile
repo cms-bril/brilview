@@ -17,7 +17,7 @@ RUN /opt/brilconda/bin/pip install brilws==3.9.0;
 EXPOSE 9000
 # Clone brilview repo to /brilview directory and change working directory
 RUN mkdir -p /brilview
-RUN git clone https://github.com/cms-bril/brilview.git /brilview --branch=1.6.2 # <- Change TAG here!
+RUN git clone https://github.com/cms-bril/brilview.git /brilview --branch=1.6.3 # <- Change TAG here!
 WORKDIR "/brilview"
 # Install Brilview python package
 RUN /opt/brilconda/bin/python ./setup.py install
@@ -30,5 +30,4 @@ RUN chmod 777 /start.sh
 # Change to the Least Privileged User
 RUN groupadd -r usr && useradd -g usr usr
 USER usr
-# currently only exec form of syntax for CMD works (shell form leads to crash loop) !
 CMD ["/start.sh"]
