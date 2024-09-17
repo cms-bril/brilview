@@ -26,12 +26,12 @@ items:
       requests:
         storage: "1Mi"
 
-- apiVersion: v1
+- apiVersion: image.openshift.io/v1
   kind: ImageStream
   metadata:
     name: nginx-image
 
-- apiVersion: v1
+- apiVersion: build.openshift.io/v1
   kind: BuildConfig
   metadata:
     name: nginx-bc
@@ -47,7 +47,7 @@ items:
         kind: ImageStreamTag
         name: "nginx-image:latest"
 
-- apiVersion: v1
+- apiVersion: apps.openshift.io/v1
   kind: DeploymentConfig
   metadata:
     name: nginx-dc
