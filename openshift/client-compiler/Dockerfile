@@ -1,4 +1,5 @@
 FROM cern/alma8-base:20240901-1
+# Install necessary dependencies and build Angular app
 RUN dnf install -y git
 RUN dnf install -y python2
 RUN dnf install -y make
@@ -16,7 +17,13 @@ RUN source ~/.bashrc \
  && nvm use 10.24.1 \
  && npm install -g yarn \
  && yarn install --force --ignore-engines
+# Move builded app to the /client_files_for_serving
 RUN mkdir -p /client_files_for_serving && cp -R dist/* /client_files_for_serving
+# Copy infinite loop script
 COPY containerfiles/loop.sh .
 RUN chmod -R 777 loop.sh
+# Change to the Least Privileged User
+RUN groupadd -r usr && useradd -g usr usr
+USER usr
+# Run infinite loop
 CMD ["./loop.sh"]
