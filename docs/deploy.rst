@@ -45,7 +45,8 @@ First time setup for Openshift 4
 Project Creation
 ^^^^^^^^^^^^^^^^
 
-Go to https://webservices.web.cern.ch/webservices/ and "Web Application & Site Hosting" as "PaaS - Platform-as-a-Service, Application Hosting" and click "Try out" button.
+Go to https://webservices.web.cern.ch/webservices/ and "Web Application & Site Hosting" as "PaaS -
+Platform-as-a-Service, Application Hosting" and click "Try out" button.
 
 Select "Official", add "Project name" and "Project description".
 
@@ -97,42 +98,30 @@ as a "Developer":
 3. In "Upstream Application" -> "Service definition" point to 
   a. SERVICE_NAME: nginx-service 
   b. Port: 8000
-4. In "Routing Configuration" add "Public Application Hostname": brilview
-5. In "Authentication Options" -> "Allowed Role" choose e-groups in AUTHORIZED_GROUPS (e.g. 'cern-users', 'cern-staff', 'CMS-BRIL-Project')
+4. In "Routing Configuration":
+  a. "Public Application Hostname": brilview.web.cern.ch (this will be the public facing domain)
+  b. "Application Subpath": /
+  c. "Internet Visibility": ✓
+5. In "Authentication Options":
+  a. "Allowed Role": default-role (optionally you can choose e-groups in AUTHORIZED_GROUPS e.g. 'cern-users', 'cern-staff', 'CMS-BRIL-Project')
+  b. "Oauth Proxy Prefix": /oauth2
 6. Click "Create"
+7. Wait a while (~3 min) until your domain will be reachable.
 
 https://paas.docs.cern.ch/4._CERN_Authentication/2-deploy-sso-proxy/
 
 Note: cern-sso-proxy works with a site globally unique in cern domain.
-If the requested website is already registered with other hosting service, e.g. AFS, EOS, the sso registration will fail.
+If the requested website is already registered with other hosting service, e.g. AFS, EOS, the sso
+registration will fail.
 
-Make Brilview public
-^^^^^^^^^^^^^^^^^^^^
 
-Change website visibility from "Intranet" to "Internet": https://cern.service-now.com/service-portal/article.do?n=KB0004359
-
-Go to "Web Services site" and click on "Manage my websites"
-
-Select the site you want to expose from the list of "My websites"
-
-Click on "Site access & Permissions"
-
-Choose between Internet and Intranet
-
-Please note that websites of type 'Test' cannot be exposed outside the CERN network.
-
-.. _update-client:
-Updating web client
---------------------
-
-Temporarily scale down ``brilview-server`` pods from 2 to 1 to free some resources
-for client building, then scale up client-compiler from 0 to 1, watch logs, when
-finished, scale client-compiler back to 0 and scale brilview-server back to 2.
-
-Updating server & web client
+Updating server (Python) & web client (Angular)
 ---------------
 
-For production deployment, the brilview code must have a version tag in the git repository, and the file /openshfit/brilview/Dockerfile should contain the new git tag. The tagging step is required in order to always trigger a docker image update.
+For production deployment, the brilview source code must have a version tag in the git repository,
+and the file /openshfit/brilview/Dockerfile should contain this Git tag. The tagging step is required
+in order to always trigger building docker image from right source code so do not forget to change tag
+in Dockerfile!
 
 ::
 
@@ -160,5 +149,6 @@ If it is the first time after a Grafana deployment, then login with user: ``admi
 
 Tips
 ----
+If you occur any issue after building new image try to scale down a pod (or all pods) to 0 and then back to original value 1 or 2.
 
-After successful build and deploy of new brilview into a it's pods scale down nginx pods to 0 and than back to 2 in order to clean cache.
+e.g. After successful build and deploy of new brilview into a it's pods scale down nginx pods to 0 and than back to 1 (or 2) in order to clean NGINX cache.
