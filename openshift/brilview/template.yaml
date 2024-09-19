@@ -18,8 +18,8 @@ items:
         asFile: ""
     resources:
       limits:
-        cpu: 1
-        memory: 2Gi
+        cpu: 2
+        memory: 4Gi
       requests:
         cpu: 500m
         memory: 0.8Gi
@@ -49,8 +49,8 @@ items:
             protocol: TCP
           resources:
             limits:
-              cpu: 1.8
-              memory: 3.8Gi
+              cpu: 2
+              memory: 4Gi
             requests:
               cpu: 0.5
               memory: 0.8Gi
@@ -59,12 +59,17 @@ items:
               port: 9000
             initialDelaySeconds: 10
           volumeMounts:
+            - mountPath: "/client_files_for_serving"
+              name: "pvol1"
             - mountPath: /cvmfs/cms-bril.cern.ch
               name: cvmfs-bril-mount
         volumes:
           - name: cvmfs-bril-mount
             persistentVolumeClaim:
               claimName: cvmfs-bril
+          - name: "pvol1"
+            persistentVolumeClaim:
+              claimName: "brilview-storage"
     replicas: 2
     triggers:
       - type: ConfigChange
