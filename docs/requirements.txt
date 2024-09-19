@@ -1,3 +1,7 @@
-sphinx==4.2.0
-sphinx_rtd_theme==1.0.0
-readthedocs-sphinx-search==0.1.1
+sphinx==8.0.2
+sphinx_rtd_theme==2.0.0
+readthedocs-sphinx-search==0.3.2
+recommonmark==0.7.1
+commonmark==0.91
+pillow==10.4.0
+mock==5.1.0
