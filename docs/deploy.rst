@@ -15,13 +15,15 @@ A) From host, e.g. lxplus, where oc plugin sso-login is installed:
 
 .. highlight:: bash
 ::
-    oc sso-login --server https://api.paas.okd.cern.ch
+
+  oc sso-login --server https://api.paas.okd.cern.ch
 
 The oc sso-login plugin (python) can be installed with:
 
 .. highlight:: bash
 ::
-    pip install -r  https://gitlab.cern.ch/paas-tools/oc-sso-login/-/raw/master/requirements.txt?ref_type=heads
+
+  pip install -r  https://gitlab.cern.ch/paas-tools/oc-sso-login/-/raw/master/requirements.txt?ref_type=heads
 
 B) An alternative to oc sso-login is to login with token:
 Go to https://paas.cern.ch, go to your username in top right corner then "Copy login command".
