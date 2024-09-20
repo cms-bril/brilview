@@ -36,7 +36,7 @@ An alternative to oc sso-login is to login with token:
 Go to https://paas.cern.ch, go to your username in top right corner then "Copy login command".
 The press "Display Token" and copy and paste the full command.
 
-Login with 2FA disabled
+users with 2FA disabled
 -----------------------
 
 Openshift 4:
