@@ -148,11 +148,11 @@ Visit ``localhost:3000``.
 If it is the first time after a Grafana deployment, then login with user: ``admin`` and pass: ``admin`` and:
 
 1. Add data source:
-    name: ``my-influx``
-    type: ``InfluxDB``
-    url: ``http://localhost:8086``
-    access: ``proxy``
-    database: ``telegraf``
+    - name: ``my-influx``
+    - type: ``InfluxDB``
+    - url: ``http://localhost:8086``
+    - access: ``proxy``
+    - database: ``telegraf``
 2. Create whatever dashboard needed or import (copy/paste the text) from the file ``grafana-influxdb/dashboard.json``
 3. Change host names for all graphs to match the ones returned by ``oc get pods`` by clicking Edit -> Metrics (Grafana queries influxdb and gives suggestions in dropdowns)
 
