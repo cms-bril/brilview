@@ -1,5 +1,6 @@
-Deploy
-======
+==========
+Deployment
+==========
 
 Central Brilview is hosted at CERN PaaS: https://paas.cern.ch
 
@@ -7,11 +8,14 @@ All instructions bellow assume that you are inside ``openshift`` directory of
 the Brilview project.
 
 Log in to CERN Openshift
-------------------------
+========================
 
 There are two ways to log in to CERN PaaS server.
 
-A) From host, e.g. lxplus, where oc plugin sso-login is installed:
+sso-login
+---------
+
+From host e.g. lxplus, where oc plugin sso-login is installed:
 
 .. highlight:: bash
 ::
@@ -25,11 +29,17 @@ The oc sso-login plugin (python) can be installed with:
 
   pip install -r  https://gitlab.cern.ch/paas-tools/oc-sso-login/-/raw/master/requirements.txt?ref_type=heads
 
-B) An alternative to oc sso-login is to login with token:
+token
+---------
+
+An alternative to oc sso-login is to login with token:
 Go to https://paas.cern.ch, go to your username in top right corner then "Copy login command".
 The press "Display Token" and copy and paste the full command.
 
-Login without 2FA:
+Login with 2FA disabled
+-----------------------
+
+Openshift 4:
 
 .. highlight:: bash
 ::
@@ -44,10 +54,10 @@ Openshift 4 - Playground:
   oc login https://api.paas-stg.okd.cern.ch/ -u <username>
 
 First time setup for Openshift 4
-----------------
+================================
 
 Project Creation
-^^^^^^^^^^^^^^^^
+----------------
 
 Go to https://webservices.web.cern.ch/webservices/ and "Web Application & Site Hosting" as "PaaS -
 Platform-as-a-Service, Application Hosting" and click "Try out" button.
@@ -58,7 +68,7 @@ Note: More information in the below link
 https://paas.docs.cern.ch/1._Getting_Started/1-create-paas-project/
 
 Create CVMFS volume claim
-^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------
 
 Go to project web console https://paas.cern.ch/k8s/cluster/projects/brilview/
 
@@ -66,17 +76,17 @@ Go to project web console https://paas.cern.ch/k8s/cluster/projects/brilview/
 2. "Storage" -> "PersistentVolumeClaims" -> "Create PersistentVolumeClaims".
 3. Fill the form:
 
-   a. "Storage Class": ``cvmfs``
-   b. "Name": ``cvmfs-bril``
-   c. "Access Mode": ``Read Only (ROX) or Read Write Many (RWX)``
-   d. "Size": ``1 MiB``
+   - "Storage Class": ``cvmfs``
+   - "Name": ``cvmfs-bril``
+   - "Access Mode": ``Read Only (ROX) or Read Write Many (RWX)``
+   - "Size": ``1 MiB``
 
-      See https://paas.docs.cern.ch/3._Storage/cvmfs/
+   Note: For more details see https://paas.docs.cern.ch/3._Storage/cvmfs/
 
-3. Click "Create"
+4. Click "Create"
 
 Deploy Brilview containers
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------
 
 .. highlight:: bash
 ::
@@ -92,7 +102,7 @@ Do not worry if nginx container is "crashing frequently" until client files are
 compiled. Health check fails until nginx can serve index file.
 
 Add CERN SSO
-^^^^^^^^^^^^
+------------
 
 Go to project web console https://paas.cern.ch/k8s/cluster/projects/brilview/
 as a "Developer":
@@ -100,15 +110,15 @@ as a "Developer":
 1. Click in "+Add"
 2. Click on "Add to Project" (book with +) and search for "sso" and click on "Create"
 3. In "Upstream Application" -> "Service definition" point to 
-  a. SERVICE_NAME: ``nginx-service``
-  b. Port: ``8000``
+  - SERVICE_NAME: ``nginx-service``
+  - Port: ``8000``
 4. In "Routing Configuration":
-  a. "Public Application Hostname": ``brilview.web.cern.ch`` (this will be the public facing domain)
-  b. "Application Subpath": ``/``
-  c. "Internet Visibility": ✓
+  - "Public Application Hostname": ``brilview.web.cern.ch`` (this will be the public facing domain)
+  - "Application Subpath": ``/``
+  - "Internet Visibility": ✓
 5. In "Authentication Options":
-  a. "Allowed Role": ``default-role`` (optionally you can choose e-groups in AUTHORIZED_GROUPS e.g. 'cern-users', 'cern-staff', 'CMS-BRIL-Project')
-  b. "Oauth Proxy Prefix": ``/oauth2``
+  - "Allowed Role": ``default-role`` (optionally you can choose e-groups in AUTHORIZED_GROUPS e.g. 'cern-users', 'cern-staff', 'CMS-BRIL-Project')
+  - "Oauth Proxy Prefix": ``/oauth2``
 6. Click "Create"
 7. Wait a while (~3 min) until your domain will be reachable.
 
@@ -120,7 +130,7 @@ registration will fail.
 
 
 Updating server (Python) & web client (Angular)
----------------
+-----------------------------------------------
 
 For production deployment, the brilview source code must have a version tag in the git repository,
 and the file /openshfit/brilview/Dockerfile should contain this Git tag. The tagging step is required
