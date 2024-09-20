@@ -30,12 +30,14 @@ Go to https://paas.cern.ch, go to your username in top right corner then "Copy l
 The press "Display Token" and copy and paste the full command.
 
 Login without 2FA:
+
 .. highlight:: bash
 ::
 
   oc login https://api.paas.okd.cern.ch/ -u <username>
 
 Openshift 4 - Playground:
+
 .. highlight:: bash
 ::
 
