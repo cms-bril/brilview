@@ -66,10 +66,10 @@ Go to project web console https://paas.cern.ch/k8s/cluster/projects/brilview/
 2. "Storage" -> "PersistentVolumeClaims" -> "Create PersistentVolumeClaims".
 3. Fill the form:
 
-   a. "Storage Class": cvmfs
-   b. "Name": cvmfs-bril
-   c. "Access Mode": Read Only (ROX) or Read Write Many (RWX)
-   d. "Size": 1 MiB
+   a. "Storage Class": ``cvmfs``
+   b. "Name": ``cvmfs-bril``
+   c. "Access Mode": ``Read Only (ROX) or Read Write Many (RWX)``
+   d. "Size": ``1 MiB``
 
       See https://paas.docs.cern.ch/3._Storage/cvmfs/
 
@@ -100,15 +100,15 @@ as a "Developer":
 1. Click in "+Add"
 2. Click on "Add to Project" (book with +) and search for "sso" and click on "Create"
 3. In "Upstream Application" -> "Service definition" point to 
-  a. SERVICE_NAME: nginx-service 
-  b. Port: 8000
+  a. SERVICE_NAME: ``nginx-service``
+  b. Port: ``8000``
 4. In "Routing Configuration":
-  a. "Public Application Hostname": brilview.web.cern.ch (this will be the public facing domain)
-  b. "Application Subpath": /
+  a. "Public Application Hostname": ``brilview.web.cern.ch`` (this will be the public facing domain)
+  b. "Application Subpath": ``/``
   c. "Internet Visibility": ✓
 5. In "Authentication Options":
-  a. "Allowed Role": default-role (optionally you can choose e-groups in AUTHORIZED_GROUPS e.g. 'cern-users', 'cern-staff', 'CMS-BRIL-Project')
-  b. "Oauth Proxy Prefix": /oauth2
+  a. "Allowed Role": ``default-role`` (optionally you can choose e-groups in AUTHORIZED_GROUPS e.g. 'cern-users', 'cern-staff', 'CMS-BRIL-Project')
+  b. "Oauth Proxy Prefix": ``/oauth2``
 6. Click "Create"
 7. Wait a while (~3 min) until your domain will be reachable.
 
@@ -147,7 +147,12 @@ Visit ``localhost:3000``.
 
 If it is the first time after a Grafana deployment, then login with user: ``admin`` and pass: ``admin`` and:
 
-1. Add data source (name: ``my-influx``, type: ``InfluxDB``, url: ``http://localhost:8086``, access: ``proxy``, database: ``telegraf``)
+1. Add data source:
+    name: ``my-influx``
+    type: ``InfluxDB``
+    url: ``http://localhost:8086``
+    access: ``proxy``
+    database: ``telegraf``
 2. Create whatever dashboard needed or import (copy/paste the text) from the file ``grafana-influxdb/dashboard.json``
 3. Change host names for all graphs to match the ones returned by ``oc get pods`` by clicking Edit -> Metrics (Grafana queries influxdb and gives suggestions in dropdowns)
 
