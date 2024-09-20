@@ -8,7 +8,7 @@ Release log
 2024-09-16
 
 * Fix: support of 5 digit number input for total luminosity input filed
-* Update deployment (Dockerfiles - new base image, Openstack template.yaml - new syntax, lower request resources)
+* Update deployment (Dockerfiles - new base image, Openstack template.yaml - new syntax, lower requested resources)
 * Improved security - fixed know vulnerable dependencies, run Docker container as least privileged user
 
 1.5
