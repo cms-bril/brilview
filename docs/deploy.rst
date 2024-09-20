@@ -7,6 +7,12 @@ Central Brilview is hosted at CERN PaaS: https://paas.cern.ch
 All instructions bellow assume that you are inside ``openshift`` directory of
 the Brilview project.
 
+
+Prerequisites
+=============
+
+Install `oc` command ( see https://paas.docs.cern.ch/1._Getting_Started/5-installing-cli/ ).
+
 Log in to CERN Openshift
 ========================
 
