@@ -59,6 +59,11 @@ Openshift 4 - Playground:
 
   oc login https://api.paas-stg.okd.cern.ch/ -u <username>
 
+Web GUI login
+-------------
+
+Use your CERN credentials to log in at https://paas.cern.ch (or https://paas-stg.cern.ch - playground)
+
 First time setup for Openshift 4
 ================================
 
