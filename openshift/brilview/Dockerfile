@@ -36,7 +36,7 @@ RUN wget -q https://cern.ch/cmslumisw/installers/linux-64/Brilconda-3.3.0-0-Linu
 RUN mkdir -p /opt
 RUN bash ./Brilconda-3.3.0-0-Linux-x86_64.sh -b -p /opt/brilconda
 RUN rm ./Brilconda-3.3.0-0-Linux-x86_64.sh
-RUN /opt/brilconda/bin/pip install brilws==3.9.3;
+RUN /opt/brilconda/bin/pip install brilws==3.9.4;
 EXPOSE 9000
 # Copy previously dowloaded repo to /brilview directory and change working directory
 RUN mkdir -p /brilview
