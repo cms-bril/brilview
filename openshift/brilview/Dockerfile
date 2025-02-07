@@ -1,9 +1,7 @@
 # Brilview Angular Client
-FROM cern/alma8-base:20240901-1 as build
+FROM cern/alma9-base:20250201-1 as build
 # Install necessary dependencies and build Angular app
 RUN dnf install -y git
-RUN dnf install -y python2
-RUN dnf install -y make
 RUN dnf group install -y "Development Tools"
 WORKDIR "/home"
 RUN mkdir -p brilview_src/
@@ -17,15 +15,11 @@ RUN source ~/.bashrc \
  && npm install -g yarn \
  && yarn install --force --ignore-engines
 
-
-
-
 # Brilview Python Server
-FROM cern/alma8-base:20240901-1
+FROM cern/alma9-base:20250201-1
 # Install necessary dependencies
 RUN dnf install -y epel-release
 RUN dnf install -y wget
-RUN dnf install -y git
 RUN dnf install -y libaio
 RUN dnf install -y libnsl
 RUN wget https://dl.influxdata.com/telegraf/releases/telegraf-1.19.1-1.x86_64.rpm
@@ -36,7 +30,7 @@ RUN wget -q https://cern.ch/cmslumisw/installers/linux-64/Brilconda-3.3.0-0-Linu
 RUN mkdir -p /opt
 RUN bash ./Brilconda-3.3.0-0-Linux-x86_64.sh -b -p /opt/brilconda
 RUN rm ./Brilconda-3.3.0-0-Linux-x86_64.sh
-RUN /opt/brilconda/bin/pip install brilws==3.9.4;
+RUN /opt/brilconda/bin/pip install brilws==3.9.4; # <- Change version here!
 EXPOSE 9000
 # Copy previously dowloaded repo to /brilview directory and change working directory
 RUN mkdir -p /brilview
